@@ -14,6 +14,8 @@ Dispatcher.to_prepare :redmine_rate do
 
   require_dependency 'users_helper'
   UsersHelper.send(:include, RateUsersHelperPatch) unless UsersHelper.included_modules.include?(RateUsersHelperPatch)
+  
+  ApplicationController.send(:helper, :all)
 end
 
 # Hooks
